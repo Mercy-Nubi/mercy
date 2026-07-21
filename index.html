@@ -136,17 +136,20 @@
   /* ---------- HERO ---------- */
   .hero{
     min-height:74vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
-    padding-top:140px;padding-bottom:20px;text-align:center;position:relative;overflow:hidden;
+    padding-top:140px;padding-bottom:20px;text-align:center;position:relative;
   }
   .hero-bg-video{
-    position:absolute;inset:-30px;width:calc(100% + 60px);height:calc(100% + 60px);
+    position:absolute;top:-30px;bottom:-30px;left:50%;
+    width:100vw;height:calc(100% + 60px);
+    transform:translateX(-50%);
     object-fit:cover;object-position:center 35%;
     filter:brightness(0.32) saturate(1.05);
     z-index:-2;pointer-events:none;
   }
   .hero::after{
-    content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg, rgba(12,14,18,0.4) 0%, var(--ink) 92%);
+    content:"";position:absolute;top:-30px;bottom:-30px;left:50%;
+    width:100vw;transform:translateX(-50%);
+    background:linear-gradient(180deg, rgba(12,14,18,0.2) 0%, rgba(12,14,18,0.55) 55%, var(--ink) 100%);
     z-index:-1;
   }
   .status-pill{
