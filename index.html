@@ -130,13 +130,24 @@
     .hamburger-btn{width:36px;height:36px;}
   }
 
-  section{padding:104px 24px 100px;max-width:1200px;margin:0 auto;position:relative;}
+  section{padding:84px 24px 100px;max-width:1200px;margin:0 auto;position:relative;}
   @media(max-width:600px){section{padding:80px 20px 70px;}}
 
   /* ---------- HERO ---------- */
   .hero{
-    min-height:92vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
-    padding-top:150px;text-align:center;
+    min-height:74vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+    padding-top:140px;padding-bottom:20px;text-align:center;position:relative;overflow:hidden;
+  }
+  .hero-bg-video{
+    position:absolute;inset:-30px;width:calc(100% + 60px);height:calc(100% + 60px);
+    object-fit:cover;object-position:center 35%;
+    filter:brightness(0.32) saturate(1.05);
+    z-index:-2;pointer-events:none;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(12,14,18,0.4) 0%, var(--ink) 92%);
+    z-index:-1;
   }
   .status-pill{
     display:inline-flex;align-items:center;gap:10px;width:fit-content;
@@ -152,8 +163,15 @@
   @keyframes blink{0%,100%{opacity:1;}50%{opacity:0.4;}}
   h1.hero-headline{
     font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;
-    font-size:clamp(2.6rem,9vw,5.2rem);line-height:0.98;letter-spacing:0.01em;
-    max-width:900px;margin-bottom:24px;
+    font-size:clamp(2.2rem,7.5vw,4.4rem);line-height:1.05;letter-spacing:0.01em;
+    max-width:960px;margin-bottom:24px;
+  }
+  .cycling-word{
+    display:inline;color:#FF9142;
+  }
+  .cursor-blink{
+    display:inline-block;color:#FF9142;font-weight:400;
+    animation:blink 0.9s step-end infinite;margin-left:2px;
   }
   .hero-desc{
     max-width:520px;font-size:1.1rem;line-height:1.6;color:var(--text-dim);
@@ -219,7 +237,7 @@
   /* ---------- Grids ---------- */
   .grid{display:grid;gap:18px;}
   .grid-sf{grid-template-columns:repeat(4,1fr);}
-  .grid-lf{grid-template-columns:repeat(2,1fr);}
+  .grid-lf{grid-template-columns:repeat(3,1fr);}
   .grid-md{grid-template-columns:repeat(3,1fr);}
   @media(max-width:980px){
     .grid-sf{grid-template-columns:repeat(3,1fr);}
@@ -360,10 +378,13 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="home">
+  <video class="hero-bg-video" autoplay muted loop playsinline>
+    <source src="hero-bg.mp4" type="video/mp4">
+  </video>
   <div class="status-pill">
     <span class="status-dot"></span>Available for new projects
   </div>
-  <h1 class="hero-headline">Drive Result with Videos</h1>
+  <h1 class="hero-headline">Drive Result with <span id="cyclingWord" class="cycling-word"></span><span class="cursor-blink">|</span></h1>
   <p class="hero-desc">
     Turn raw footages into stories that moves and hold attention.
   </p>
@@ -381,59 +402,49 @@
 <!-- ============ SHORT FORM ============ -->
 <section id="shortform">
   <div class="sec-head">
-    <h2><span class="code">SF</span> / Short Form</h2>
+    <h2><span style="color:var(--coral);">Short</span> <span style="color:var(--text);">Form</span></h2>
     <p class="sec-sub">Fast hooks, tight cuts, built for the scroll. Reels, TikToks, and Shorts made to stop the thumb.</p>
   </div>
   <div class="grid grid-sf">
-    <!--
-      SHORT-FORM SLOTS (10)
-      Replace each .clip block below with your own embed once you have a link, e.g.:
-      <div class="clip sf" style="border-style:solid;">
-        <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID?rel=0&mute=1"
-                style="width:100%;height:100%;border:0;" allowfullscreen></iframe>
-      </div>
-      or link out to the platform post directly with <a href="...">.
-    -->
-    <div class="clip sf" style="border-style:solid;"><iframe src="https://drive.google.com/file/d/14Rkw5IiX6C_jGyizeZv7E56qo_zahBeZ/preview" style="width:100%;height:100%;border:0;" allow="autoplay"></iframe></div>
-    <div class="clip sf" style="border-style:solid;"><iframe src="https://drive.google.com/file/d/1LDl_UpQhLcIMVfweHMxJbQfHNU7AkVAo/preview" style="width:100%;height:100%;border:0;" allow="autoplay"></iframe></div>
-    <div class="clip sf" style="border-style:solid;"><iframe src="https://drive.google.com/file/d/1q5uf-0Nc0lfilGFiW_23uy1Wxeo-ScxL/preview" style="width:100%;height:100%;border:0;" allow="autoplay"></iframe></div>
-    <div class="clip sf" style="border-style:solid;"><iframe src="https://drive.google.com/file/d/1i1wiZThKSui-Tw17lx836dp1WqqGZezB/preview" style="width:100%;height:100%;border:0;" allow="autoplay"></iframe></div>
-    <div class="clip sf" style="border-style:solid;"><iframe src="https://drive.google.com/file/d/1Fvru7xvr9gAf__G-3IGCAuJT7g9ECrqt/preview" style="width:100%;height:100%;border:0;" allow="autoplay"></iframe></div>
-    <div class="clip sf" style="border-style:solid;"><iframe src="https://drive.google.com/file/d/10juh3Fp5HlvAIMnvaNgkoJXHFGXwFE1w/preview" style="width:100%;height:100%;border:0;" allow="autoplay"></iframe></div>
-    <div class="clip sf" style="border-style:solid;"><iframe src="https://drive.google.com/file/d/1gS9yFBFrqURfJfU_i1gum6g6wjz5GVUg/preview" style="width:100%;height:100%;border:0;" allow="autoplay"></iframe></div>
-    <div class="clip sf" style="border-style:solid;"><iframe src="https://drive.google.com/file/d/1ZEcFrc3AYR09RcSLcAVfQC69r1In6gjL/preview" style="width:100%;height:100%;border:0;" allow="autoplay"></iframe></div>
+    <div class="clip sf" style="border-style:solid;"><iframe class="yt-frame" id="yt-sf-01" src="https://www.youtube-nocookie.com/embed/FPk63Ii1BHg?enablejsapi=1&rel=0" style="width:100%;height:100%;border:0;" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+    <div class="clip sf" style="border-style:solid;"><iframe class="yt-frame" id="yt-sf-02" src="https://www.youtube-nocookie.com/embed/tAf57RX1q0M?enablejsapi=1&rel=0" style="width:100%;height:100%;border:0;" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+    <div class="clip sf" style="border-style:solid;"><iframe class="yt-frame" id="yt-sf-03" src="https://www.youtube-nocookie.com/embed/iYg6sj3Vuk0?enablejsapi=1&rel=0" style="width:100%;height:100%;border:0;" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+    <div class="clip sf" style="border-style:solid;"><iframe class="yt-frame" id="yt-sf-04" src="https://www.youtube-nocookie.com/embed/dv8oXVdte6I?enablejsapi=1&rel=0" style="width:100%;height:100%;border:0;" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+    <div class="clip sf" style="border-style:solid;"><iframe class="yt-frame" id="yt-sf-05" src="https://www.youtube-nocookie.com/embed/4H5EAKCAWRg?enablejsapi=1&rel=0" style="width:100%;height:100%;border:0;" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+    <div class="clip sf" style="border-style:solid;"><iframe class="yt-frame" id="yt-sf-06" src="https://www.youtube-nocookie.com/embed/y7xGmVhlsEI?enablejsapi=1&rel=0" style="width:100%;height:100%;border:0;" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+    <div class="clip sf" style="border-style:solid;"><iframe class="yt-frame" id="yt-sf-07" src="https://www.youtube-nocookie.com/embed/EbZyjOHdi8c?enablejsapi=1&rel=0" style="width:100%;height:100%;border:0;" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+    <div class="clip sf" style="border-style:solid;"><iframe class="yt-frame" id="yt-sf-08" src="https://www.youtube-nocookie.com/embed/PVCZrH2eByM?enablejsapi=1&rel=0" style="width:100%;height:100%;border:0;" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
   </div>
 </section>
 
 <!-- ============ LONG FORM ============ -->
 <section id="longform">
   <div class="sec-head">
-    <h2><span class="code">LF</span> / Long Form</h2>
+    <h2><span style="color:var(--coral);">Long</span> <span style="color:var(--text);">Form</span></h2>
     <p class="sec-sub">Full narratives paced for watch time. YouTube videos, documentaries, and episodic content.</p>
   </div>
   <div class="grid grid-lf">
-    <div class="clip lf" style="border-style:solid;"><iframe src="https://drive.google.com/file/d/1xfhczJZsGJbQkFIXi6OXy2DD2nQiCL1c/preview" style="width:100%;height:100%;border:0;" allow="autoplay"></iframe></div>
-    <div class="clip lf" style="border-style:solid;"><iframe src="https://drive.google.com/file/d/1hZFDZd4Kfdfd6aC1CpK0oA5mWUuc1qJ3/preview" style="width:100%;height:100%;border:0;" allow="autoplay"></iframe></div>
-    <div class="clip lf" style="border-style:solid;"><iframe src="https://drive.google.com/file/d/1s0KK05oLOlu8zWls-Cdj0Vt9eQcSnPof/preview" style="width:100%;height:100%;border:0;" allow="autoplay"></iframe></div>
-    <div class="clip lf" style="border-style:solid;"><iframe src="https://drive.google.com/file/d/1i1wiZThKSui-Tw17lx836dp1WqqGZezB/preview" style="width:100%;height:100%;border:0;" allow="autoplay"></iframe></div>
+    <div class="clip lf" style="border-style:solid;"><iframe class="yt-frame" id="yt-lf-01" src="https://www.youtube-nocookie.com/embed/0ddugLE-plY?enablejsapi=1&rel=0" style="width:100%;height:100%;border:0;" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+    <div class="clip lf" style="border-style:solid;"><iframe class="yt-frame" id="yt-lf-02" src="https://www.youtube-nocookie.com/embed/s12xy4K_afw?enablejsapi=1&rel=0" style="width:100%;height:100%;border:0;" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+    <div class="clip lf" style="border-style:solid;"><iframe class="yt-frame" id="yt-lf-03" src="https://www.youtube-nocookie.com/embed/XJi4utmo5W8?enablejsapi=1&rel=0" style="width:100%;height:100%;border:0;" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
   </div>
 </section>
 
 <!-- ============ MOTION DESIGN ============ -->
 <section id="motion">
   <div class="sec-head">
-    <h2><span class="code">MD</span> / Motion Design</h2>
+    <h2><span style="color:var(--coral);">Motion</span> <span style="color:var(--text);">Design</span></h2>
     <p class="sec-sub">Shapes, type, and motion systems. Logo animations, UI motion, and explainer graphics.</p>
   </div>
   <div class="grid grid-md">
-    <!-- MOTION DESIGN SLOTS (7) — swap the .shape div for a real video/gif/mp4 loop, or an embed -->
-    <div class="clip md" style="border-style:solid;aspect-ratio:16/9;"><iframe src="https://drive.google.com/file/d/1ic1eT2MjShQkRyBngS9pgMw9kYhEgLe2/preview" style="width:100%;height:100%;border:0;" allow="autoplay"></iframe></div>
-    <div class="clip md" style="border-style:solid;aspect-ratio:16/9;"><iframe src="https://drive.google.com/file/d/1fGM63IxwTWOiDGUr-mHdZgUWsABb4id9/preview" style="width:100%;height:100%;border:0;" allow="autoplay"></iframe></div>
-    <div class="clip md" style="border-style:solid;aspect-ratio:16/9;"><iframe src="https://drive.google.com/file/d/1hJ6QmGIfxYhdhVlcCZRIzr_g1MUdes07/preview" style="width:100%;height:100%;border:0;" allow="autoplay"></iframe></div>
-    <div class="clip md" style="border-style:solid;aspect-ratio:16/9;"><iframe src="https://drive.google.com/file/d/1Exhs9Od5WqWjjPreDgQvp4W7_l4M3Dha/preview" style="width:100%;height:100%;border:0;" allow="autoplay"></iframe></div>
-    <div class="clip md" style="border-style:solid;aspect-ratio:16/9;"><iframe src="https://drive.google.com/file/d/1gKR8iFXvCJXRIgrv1_hGhyZIlvw1aNuJ/preview" style="width:100%;height:100%;border:0;" allow="autoplay"></iframe></div>
-    <div class="clip md" style="border-style:solid;aspect-ratio:16/9;"><iframe src="https://drive.google.com/file/d/1WvoZ3dOkQYtybNTHa_GlPXfVuWIXcE8b/preview" style="width:100%;height:100%;border:0;" allow="autoplay"></iframe></div>
-    <div class="clip md" style="border-style:solid;aspect-ratio:16/9;"><iframe src="https://drive.google.com/file/d/1E968giukwsdhJCmOM63-8IMms3Vj_es5/preview" style="width:100%;height:100%;border:0;" allow="autoplay"></iframe></div>
+    <div class="clip md" style="border-style:solid;aspect-ratio:16/9;"><iframe class="yt-frame" id="yt-md-01" src="https://www.youtube-nocookie.com/embed/t64DOKfkAAs?enablejsapi=1&rel=0" style="width:100%;height:100%;border:0;" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+    <div class="clip md" style="border-style:solid;aspect-ratio:16/9;"><iframe class="yt-frame" id="yt-md-02" src="https://www.youtube-nocookie.com/embed/T8zFncjA-Bk?enablejsapi=1&rel=0" style="width:100%;height:100%;border:0;" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+    <div class="clip md" style="border-style:solid;aspect-ratio:16/9;"><iframe class="yt-frame" id="yt-md-03" src="https://www.youtube-nocookie.com/embed/anneS8ZvI7s?enablejsapi=1&rel=0" style="width:100%;height:100%;border:0;" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+    <div class="clip md" style="border-style:solid;aspect-ratio:16/9;"><iframe class="yt-frame" id="yt-md-04" src="https://www.youtube-nocookie.com/embed/N5MqjdKW5pE?enablejsapi=1&rel=0" style="width:100%;height:100%;border:0;" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+    <div class="clip md" style="border-style:solid;aspect-ratio:16/9;"><iframe class="yt-frame" id="yt-md-05" src="https://www.youtube-nocookie.com/embed/5iIaUMu8HWc?enablejsapi=1&rel=0" style="width:100%;height:100%;border:0;" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+    <div class="clip md" style="border-style:solid;aspect-ratio:16/9;"><iframe class="yt-frame" id="yt-md-06" src="https://www.youtube-nocookie.com/embed/KlQG6MFNPmM?enablejsapi=1&rel=0" style="width:100%;height:100%;border:0;" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+    <div class="clip md" style="border-style:solid;aspect-ratio:16/9;"><iframe class="yt-frame" id="yt-md-07" src="https://www.youtube-nocookie.com/embed/imx4ZW3AHkw?enablejsapi=1&rel=0" style="width:100%;height:100%;border:0;" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+    <div class="clip md" style="border-style:solid;aspect-ratio:16/9;"><iframe class="yt-frame" id="yt-md-08" src="https://www.youtube-nocookie.com/embed/U-_4_CcANJA?enablejsapi=1&rel=0" style="width:100%;height:100%;border:0;" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
   </div>
 </section>
 
@@ -562,6 +573,65 @@
   }
   document.addEventListener('scroll', updateActive);
   updateActive();
+
+  // Typewriter effect for the cycling hero word
+  (function () {
+    var words = ['Videos', 'Designs', 'Motion', 'Edits', 'Animes', 'AI'];
+    var el = document.getElementById('cyclingWord');
+    if (!el) return;
+    var wordIndex = 0;
+    var charIndex = 0;
+    var deleting = false;
+
+    function tick() {
+      var current = words[wordIndex];
+      if (!deleting) {
+        charIndex++;
+        el.textContent = current.slice(0, charIndex);
+        if (charIndex === current.length) {
+          deleting = true;
+          setTimeout(tick, 1400); // pause on full word
+          return;
+        }
+        setTimeout(tick, 90);
+      } else {
+        charIndex--;
+        el.textContent = current.slice(0, charIndex);
+        if (charIndex === 0) {
+          deleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+          setTimeout(tick, 300); // pause before typing next word
+          return;
+        }
+        setTimeout(tick, 45);
+      }
+    }
+    tick();
+  })();
+
+  // Auto-pause: when one video starts playing, pause every other one.
+  // Works automatically for any iframe with class="yt-frame" and a unique id,
+  // once its src is a youtube-nocookie.com/embed/VIDEO_ID?enablejsapi=1 URL.
+  window.ytPlayers = [];
+  window.onYouTubeIframeAPIReady = function () {
+    document.querySelectorAll('iframe.yt-frame').forEach(function (iframe) {
+      var player = new YT.Player(iframe.id, {
+        events: {
+          onStateChange: function (e) {
+            if (e.data === YT.PlayerState.PLAYING) {
+              window.ytPlayers.forEach(function (p) {
+                if (p !== e.target && typeof p.pauseVideo === 'function') {
+                  p.pauseVideo();
+                }
+              });
+            }
+          }
+        }
+      });
+      window.ytPlayers.push(player);
+    });
+  };
 </script>
+<script src="https://www.youtube.com/iframe_api"></script>
 </body>
 </html>
